@@ -1,34 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, View, FlatList } from 'react-native';
 
 export default function App() {
 
   const [cardapioApi, setCardapioApi] = useState([
-      { 'tipo': 'café', 'data': '2023-09-24', 'oque': 'pão com leite' },
-      { 'tipo': 'almoço', 'data': '2023-09-24', 'oque': 'arroz e feijão' },
-      { 'tipo': 'janta', 'data': '2023-09-24', 'oque': 'frango grelhado' },
-      { 'tipo': 'café', 'data': '2023-09-25', 'oque': 'ovos mexidos' },
-      { 'tipo': 'almoço', 'data': '2023-09-25', 'oque': 'macarrão com queijo' },
-      { 'tipo': 'janta', 'data': '2023-09-25', 'oque': 'salmão grelhado' },
-      { 'tipo': 'café', 'data': '2023-09-26', 'oque': 'cappuccino' },
-      { 'tipo': 'almoço', 'data': '2023-09-26', 'oque': 'salada de frutas' },
-      { 'tipo': 'janta', 'data': '2023-09-26', 'oque': 'bife à parmegiana' },
-      { 'tipo': 'café', 'data': '2023-09-27', 'oque': 'misto quente' },
-      { 'tipo': 'almoço', 'data': '2023-09-27', 'oque': 'risoto de cogumelos' },
-      { 'tipo': 'janta', 'data': '2023-09-27', 'oque': 'tacos de frango' },
-      { 'tipo': 'café', 'data': '2023-09-28', 'oque': 'café com leite' },
-      { 'tipo': 'almoço', 'data': '2023-09-28', 'oque': 'sopa de lentilhas' },
-      { 'tipo': 'janta', 'data': '2023-09-28', 'oque': 'sanduíche de peru' },
-      { 'tipo': 'café', 'data': '2023-09-29', 'oque': 'espresso' },
-      { 'tipo': 'almoço', 'data': '2023-09-29', 'oque': 'hambúrguer vegetariano' },
-      { 'tipo': 'janta', 'data': '2023-09-29', 'oque': 'wraps de frango' },
-      { 'tipo': 'café', 'data': '2023-09-30', 'oque': 'cappuccino' },
-      { 'tipo': 'almoço', 'data': '2023-09-30', 'oque': 'salada mista' },
-      { 'tipo': 'janta', 'data': '2023-09-30', 'oque': 'sopa de legumes' },
-      { 'tipo': 'café', 'data': '2023-10-01', 'oque': 'torradas com geleia' },
-      { 'tipo': 'almoço', 'data': '2023-10-01', 'oque': 'lasanha' },
-      { 'tipo': 'janta', 'data': '2023-10-01', 'oque': 'sanduíche de presunto' },
+      { 'tipo': 'café', 'data': '2023-10-01', 'oque': 'pão com leite' },
+      { 'tipo': 'almoço', 'data': '2023-10-01', 'oque': 'arroz e feijão' },
+      { 'tipo': 'janta', 'data': '2023-10-01', 'oque': 'frango grelhado' },
+      { 'tipo': 'café', 'data': '2023-10-02', 'oque': 'ovos mexidos' },
+      { 'tipo': 'almoço', 'data': '2023-10-02', 'oque': 'macarrão com queijo' },
+      { 'tipo': 'janta', 'data': '2023-10-02', 'oque': 'salmão grelhado' },
+      { 'tipo': 'café', 'data': '2023-10-03', 'oque': 'cappuccino' },
+      { 'tipo': 'almoço', 'data': '2023-10-03', 'oque': 'salada de frutas' },
+      { 'tipo': 'janta', 'data': '2023-10-03', 'oque': 'bife à parmegiana' },
+      { 'tipo': 'café', 'data': '2023-10-04', 'oque': 'misto quente' },
+      { 'tipo': 'almoço', 'data': '2023-10-04', 'oque': 'risoto de cogumelos' },
+      { 'tipo': 'janta', 'data': '2023-10-04', 'oque': 'tacos de frango' },
+      { 'tipo': 'café', 'data': '2023-10-05', 'oque': 'café com leite' },
+      { 'tipo': 'almoço', 'data': '2023-10-05', 'oque': 'sopa de lentilhas' },
+      { 'tipo': 'janta', 'data': '2023-10-05', 'oque': 'sanduíche de peru' },
+      { 'tipo': 'café', 'data': '2023-10-06', 'oque': 'espresso' },
+      { 'tipo': 'almoço', 'data': '2023-10-06', 'oque': 'hambúrguer vegetariano' },
+      { 'tipo': 'janta', 'data': '2023-10-06', 'oque': 'wraps de frango' },
+      { 'tipo': 'café', 'data': '2023-10-07', 'oque': 'cappuccino' },
+      { 'tipo': 'almoço', 'data': '2023-10-07', 'oque': 'salada mista' },
+      { 'tipo': 'janta', 'data': '2023-10-07', 'oque': 'sopa de legumes' },
+      { 'tipo': 'café', 'data': '2023-10-08', 'oque': 'torradas com geleia' },
+      { 'tipo': 'almoço', 'data': '2023-10-08', 'oque': 'lasanha' },
+      { 'tipo': 'janta', 'data': '2023-10-08', 'oque': 'sanduíche de presunto' },
   ]);  
   const [ cafe, setCafe ] = useState([]);
   const [ almoco, setAlmoco ] = useState([]);
@@ -46,18 +46,18 @@ export default function App() {
     {dia: 'Sexta', cafe: '', almoco: '', janta: ''}, // Sexta
     {dia: 'Sabado', cafe: '', almoco: '', janta: ''}, // Sabado
   ]);
+  const [ testolino, setTestolino ] = useState('padrao'); 
 
+  useEffect(()=>{
 
-  const teste = () => {
-    
-    //Separa café, almoço e janta em um array para cada
-    separaCardapioPorTipo();
+    iniciaPreenchimento(); 
 
-    //Pega data atual e atualiza informações
-    setarDataAtual()
+  }, [])
+
+  useEffect(()=>{
 
     //le as informações
-    console.log('Data Hoje:'+dataHoje)
+    console.log('Data Hoje:'+dataHoje) 
     console.log('O dia da semana: '+diaDaSemanaHoje)
     console.log('Dias a frente: '+diasFrente)
     console.log('Dias a traz: '+diasTras)
@@ -85,6 +85,13 @@ export default function App() {
       preencheCardapioDia(esteDiaDados['data'], esteDiaDados['diaDaSemana']);
       console.log(esteDiaDados);
     }
+
+  },[dataHoje])
+
+  const iniciaPreenchimento = () => {
+
+    //Pega data atual e atualiza informações
+    setarDataAtual()
 
   }
 
@@ -198,7 +205,6 @@ export default function App() {
     <View style={styles.container}>
 
       <Text>Teste</Text>
-      <Button title="Clica" onPress={teste} />
 
 
       <FlatList
